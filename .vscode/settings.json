@@ -1,0 +1,10 @@
+{
+  "favorites.resources": [
+    "composables/protocols",
+    "components/sidebar/context/ubiquity/SidebarUbiquitySupply.vue",
+    "composables/protocols/useUbiquityPosition.ts",
+    "pages/mainnet/ubiquity.vue",
+    "components/sidebar/context",
+    "pages"
+  ]
+}

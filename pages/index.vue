@@ -40,6 +40,7 @@ import LiquityIcon from "~/assets/icons/liquity.svg?inline";
 import BprotocolIcon from "~/assets/icons/b-protocol.svg?inline";
 import ReflexerIcon from "~/assets/icons/reflexer.svg?inline";
 import YearnIcon from "~/assets/icons/yearn.svg?inline";
+import UbiquityIcon from "~/assets/icons/ubiquity.svg?inline";
 
 const appsPerNetwork = {
   mainnet: [
@@ -98,7 +99,15 @@ const appsPerNetwork = {
       name: "Yearn",
       url: "/mainnet/yearn-v2",
       description: "Automated Yield Strategies"
+    },
+	{
+	  id: "ubiquity",
+      icon: UbiquityIcon,
+      name: "Ubiquity",
+      url: "/mainnet/ubiquity",
+      description: "Algorithmic Dollar"
     }
+
   ],
   polygon: [
     {

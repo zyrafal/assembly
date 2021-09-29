@@ -53,11 +53,14 @@ import SidebarStrategySelection from '~/components/sidebar/context/strategy/Side
 import SidebarStrategy from '~/components/sidebar/context/strategy/SidebarStrategy.vue'
 
 const sidebars = {
-  "#overview" :  {component: SidebarOverview, back : false, close : true },
-  "#deposit-overview": {component: SidebarDepositOverview, back: { hash: 'overview' }  },
-  '#withdraw-token': { component: SidebarWithdraw, back: { hash: 'overview' } },
-  '#strategies': { component: SidebarStrategySelection },
-  '#strategy': { component: SidebarStrategy },
+  "#overview": { component: SidebarOverview, back: false, close: true },
+  "#deposit-overview": {
+    component: SidebarDepositOverview,
+    back: { hash: "overview" }
+  },
+  "#withdraw-token": { component: SidebarWithdraw, back: { hash: "overview" } },
+  "#strategies": { component: SidebarStrategySelection },
+  "#strategy": { component: SidebarStrategy },
 
   "/aave-v2": { component: null },
   "/aave-v2#supply": { component: SidebarAaveV2Supply },
@@ -72,7 +75,7 @@ const sidebars = {
   "/mainnet/compound#payback": { component: SidebarCompoundPayback },
 
   "/mainnet/maker": { component: null },
-  '/mainnet/maker#collateral': { component: SidebarMakerdaoCollateral },
+  "/mainnet/maker#collateral": { component: SidebarMakerdaoCollateral },
   "/mainnet/maker#supply": { component: SidebarMakerdaoSupply },
   "/mainnet/maker#withdraw": { component: SidebarMakerdaoWithdraw },
   "/mainnet/maker#borrow": { component: SidebarMakerdaoBorrow },
@@ -90,7 +93,7 @@ const sidebars = {
   "/mainnet/bprotocol#withdraw": { component: SidebarBprotocolWithdraw },
 
   "/mainnet/reflexer": { component: null },
-  '/mainnet/reflexer#collateral': { component: SidebarReflexerCollateral },
+  "/mainnet/reflexer#collateral": { component: SidebarReflexerCollateral },
   "/mainnet/reflexer#supply": { component: SidebarReflexerSupply },
   "/mainnet/reflexer#withdraw": { component: SidebarReflexerWithdraw },
   "/mainnet/reflexer#borrow": { component: SidebarReflexerBorrow },
@@ -107,7 +110,7 @@ const props = ref(null);
 
 export function init() {
   const { route } = useContext();
-  const router = useRouter()
+  const router = useRouter();
   const { active } = useWeb3();
   const { dsa } = useDSA();
 
@@ -123,15 +126,15 @@ export function init() {
 
       //@ts-ignore
       const [hash, params] = route.hash.split("?");
-      
-      if (hasPathChanged){
-        router.push({ hash: null })
-        return
+
+      if (hasPathChanged) {
+        router.push({ hash: null });
+        return;
       }
 
-       //@ts-ignore
+      //@ts-ignore
       sidebar.value = sidebars[route.path + hash] || sidebars[hash];
-        
+
       if (!sidebar.value) {
         props.value = {};
         return;
@@ -176,8 +179,8 @@ export function useSidebar() {
   });
 
   const showSidebarBalances = () => {
-    router.push({ hash: 'overview' });
-  }
+    router.push({ hash: "overview" });
+  };
 
   return {
     close,
