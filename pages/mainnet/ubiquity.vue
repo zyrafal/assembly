@@ -167,8 +167,7 @@ export default defineComponent({
     const {} = useUbiquityPosition();
 
     function openSupply() {
-      console.log("open");
-      router.push({ hash: "supply" });
+      router.push({ hash: "usupply" });
     }
     return {
       formatUsd,

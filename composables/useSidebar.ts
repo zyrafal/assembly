@@ -99,6 +99,8 @@ const sidebars = {
   "/mainnet/reflexer#borrow": { component: SidebarReflexerBorrow },
   "/mainnet/reflexer#payback": { component: SidebarReflexerPayback },
 
+  "/mainnet/ubiquity": { component: null },
+  "/mainnet/ubiquity#usupply": { component: SidebarUbiquitySupply }
 
   "/mainnet/yearn-v2": { component: null },
   "/mainnet/yearn-v2#supply": { component: SidebarYearnV2Supply },
