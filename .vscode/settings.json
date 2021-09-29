@@ -5,6 +5,14 @@
     "composables/protocols/useUbiquityPosition.ts",
     "pages/mainnet/ubiquity.vue",
     "components/sidebar/context",
-    "pages"
-  ]
+    "pages",
+    "core/strategies"
+  ],
+  
+    "svgPreview.style": {
+      "html": {
+        "background": "white"
+      }
+    }
+  
 }

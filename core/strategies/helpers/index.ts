@@ -105,7 +105,8 @@ export enum StrategyProtocol {
   AAVE_V2 = "aaveV2",
   COMPOUND = "compound",
   MAKERDAO = "makerdao",
-  LIQUITY = "liquity"
+  LIQUITY = "liquity",
+  UBIQUITY = "ubiquity"
 }
 export interface IStrategy {
   protocol: StrategyProtocol;

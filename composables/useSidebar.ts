@@ -103,6 +103,7 @@ const sidebars = {
   "/mainnet/yearn-v2": { component: null },
   "/mainnet/yearn-v2#supply": { component: SidebarYearnV2Supply },
   "/mainnet/yearn-v2#withdraw": { component: SidebarYearnV2Withdraw },
+  "/mainnet/ubiquity#supply": { component: SidebarUbiquitySupply }
 };
 
 const sidebar = ref(null);
