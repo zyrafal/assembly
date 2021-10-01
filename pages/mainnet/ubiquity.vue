@@ -61,65 +61,153 @@
               {{ formatUsd(twapPrice) }}
             </h3>
             <p class="mt-4 text-primary-gray font-medium">
-              Time Weighted Average Price
+              uAD Price
             </p>
           </div>
           <div class="flex items-center">
             <SVGPrice class="h-12 text-primary-gray" />
           </div>
         </div>
+      </div>
 
-        <div class="shadow rounded-lg py-8 px-6 flex">
-          <div class="flex-1">
-            <h3 class="text-2xl text-primary-black font-medium">
-              {{ formatNumber(23123) }}
-            </h3>
-            <p class="mt-4 text-primary-gray font-medium">
-              LP locked in Bonding Shares
-            </p>
+      <div class="mt-[60px]" v-if="position">
+        <div
+          class="w-full flex flex-col mt-6 sm:flex-row sm:items-center sm:justify-between xl:mt-4"
+        >
+          <h2 class="text-primary-gray text-lg font-semibold">
+            Your Ubiquity Inventory
+          </h2>
+        </div>
+
+        <div
+          class="px-1 mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 xl:gap-[18px]"
+        >
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.uadBalance) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">
+                uAD
+              </p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
           </div>
-          <div class="flex items-center">
-            <SVGBalance class="h-12" />
+
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.uarBalance) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">uAR</p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
+          </div>
+
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.udebtBalance) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">
+                uDEBT
+              </p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
           </div>
         </div>
 
-        <div class="shadow rounded-lg py-8 px-6 flex">
-          <div class="flex-1">
-            <h3 class="text-2xl text-primary-black font-medium">
-              {{ formatPercent(0.081757) }}
-            </h3>
-            <p class="mt-4 text-primary-gray font-medium">Pool ownership</p>
+        <div
+          class="px-1 mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 xl:gap-[18px]"
+        >
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.ubqBalance) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">
+                UBQ
+              </p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
           </div>
-          <div class="flex items-center">
-            <SVGPercent class="h-12 " />
+
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.crv3Balance) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">3CRV</p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
+          </div>
+
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.uad3crvBalance) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">
+                uAD3CRV-f
+              </p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
           </div>
         </div>
 
-        <div class="shadow rounded-lg py-8 px-6 flex">
-          <div class="flex-1">
-            <h3 class="text-2xl text-primary-black font-medium">
-              {{ formatNumber(6732.91287312) }}
-            </h3>
-            <p class="mt-4 text-primary-gray font-medium">
-              Pending UBQ rewards
-            </p>
+        <div
+          class="px-1 mt-6 grid w-full grid-cols-1 gap-4 sm:grid-cols-3 xl:gap-[18px]"
+        >
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.ubqRewards) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">
+                UBQ rewards
+              </p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
           </div>
-          <div class="flex items-center">
-            <SVGBalance class="h-12" />
+
+          <div class="shadow rounded-lg py-8 px-6 flex">
+            <div class="flex-1">
+              <h3 class="text-2xl text-primary-black font-medium">
+                {{ formatNumber(inventory.bondBalance) }}
+              </h3>
+              <p class="mt-4 text-primary-gray font-medium">Bonding Shares</p>
+            </div>
+            <div class="flex items-center">
+              <SVGBalance class="h-12" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="mx-auto w-[512px] shadow rounded-[10px] px-8 py-12 mt-[40px]">
-      <div class="mt-7">
-        <button
-          class="flex items-center justify-center flex-shrink-0 py-2 font-semibold text-white whitespace-no-wrap duration-75 ease-out transform rounded-[4px] select-none bg-ocean-blue-pure shadow-cta focus:outline-none dark:shadow-none px-8 h-16 w-full hover:-translate-y-px active:translate-y-px"
-          @click="openSupply"
-        >
-          Deposit
-          <!---->
-        </button>
+      <div class="mx-auto w-[512px] shadow rounded-[10px] px-8 py-12 mt-[40px]">
+        <div class="mt-7">
+          <button
+            class="flex items-center justify-center flex-shrink-0 py-2 font-semibold text-white whitespace-no-wrap duration-75 ease-out transform rounded-[4px] select-none bg-ocean-blue-pure shadow-cta focus:outline-none dark:shadow-none px-8 h-16 w-full hover:-translate-y-px active:translate-y-px"
+            @click="openSupply"
+          >
+            Deposit
+            <!---->
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -164,13 +252,18 @@ export default defineComponent({
       shortenHash
     } = useFormatting();
 
-    const { twapPrice } = useUbiquityPosition();
+    const { twapPrice, inventory } = useUbiquityPosition();
     console.log("UBIQUITY POSITION", twapPrice.value);
+    console.log("INVENTORY", inventory.value);
+
+    const position = true;
 
     function openSupply() {
       router.push({ hash: "usupply" });
     }
     return {
+      position,
+      inventory,
       formatUsd,
       formatUsdMax,
       formatPercent,

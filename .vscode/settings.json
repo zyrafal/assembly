@@ -14,6 +14,9 @@
       "html": {
         "background": "white"
       }
-    }
+    },
+    "workbench.colorTheme": "Noctis Minimus",
+    "workbench.preferredLightColorTheme": "Heroku Contrast (rainglow)",
+    "workbench.preferredDarkColorTheme": "Glowfish (rainglow)"
   
 }

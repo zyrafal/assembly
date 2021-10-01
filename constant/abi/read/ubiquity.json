@@ -1,54 +1,89 @@
 [
-    {
-      "inputs": [],
-      "name": "getTWAPOracleAddress",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "pure",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getTWAPPrice",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getUbiquityManagerAddress",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "pure",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "name",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    }
-  ]
+  {
+    "inputs": [],
+    "name": "getTWAPPrice",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "getUbiquityInventory",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "uadBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "uarBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "udebtBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ubqBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "crv3Balance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "uad3crvBalance",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "ubqRewards",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "bondBalance",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct Helpers.UbiquityInventory",
+        "name": "inventory",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

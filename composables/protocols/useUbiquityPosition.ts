@@ -11,7 +11,8 @@ import { useDSA } from "../useDSA";
 import useEventBus from "../useEventBus";
 
 export const position = ref<any>({
-  twapPrice: "1"
+  twapPrice: "1",
+  inventory: { uadBalance: 1 }
 });
 
 export function useUbiquityPosition() {
@@ -31,6 +32,7 @@ export function useUbiquityPosition() {
       resolveABI as AbiItem[],
       resolveAddr
     );
+
     position.value.twapPrice = await ubiquityInstance.methods
       .getTWAPPrice()
       .call();
@@ -38,6 +40,9 @@ export function useUbiquityPosition() {
     if (!activeAccount.value) {
       return;
     }
+    position.value.inventory = await ubiquityInstance.methods
+      .getUbiquityInventory(activeAccount.value.address)
+      .call();
   };
 
   const twapPrice = computed(() =>
@@ -45,7 +50,8 @@ export function useUbiquityPosition() {
       .dividedBy(1e18)
       .toFixed()
   );
-
+  const inventory = computed(() => position.value.inventory);
+  console.log("INVENTORY", inventory);
   watch(
     library,
     async val => {
@@ -68,5 +74,5 @@ export function useUbiquityPosition() {
 
   onEvent("protocol::ubiquity::refresh", fetchPosition);
 
-  return { twapPrice };
+  return { twapPrice, inventory };
 }
