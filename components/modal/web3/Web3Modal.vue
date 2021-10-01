@@ -42,12 +42,12 @@
         </button>
       </div>
 
-      <div class="mt-6 text-center text-sm hidden">
+      <!-- <div class="mt-6 text-center text-sm hidden">
         Need help connecting a wallet?
         <nuxt-link to="/faqs" class="font-semibold text-ocean-blue-pure"
           >Read our FAQ</nuxt-link
         >
-      </div>
+      </div> -->
     </div>
 
     <button v-if="!slim" class="absolute top-0 right-0 p-4" @click="close">
@@ -68,16 +68,16 @@
 </template>
 
 <script>
-import { computed, defineComponent, ref } from '@nuxtjs/composition-api'
-import Input from '~/components/common/input/Input.vue'
-import { useModal } from '~/composables/useModal'
-import { useWeb3 } from '@instadapp/vue-web3'
-import { injected, ledger } from '~/connectors'
-import { SUPPORTED_WALLETS } from '~/constant/wallet'
-import ButtonCTA from '../../common/input/ButtonCTA.vue'
-import ButtonCTAOutlined from '../../common/input/ButtonCTAOutlined.vue'
-import { Network, useNetwork } from '~/composables/useNetwork'
-import { useNotification } from '~/composables/useNotification'
+import { computed, defineComponent, ref } from "@nuxtjs/composition-api";
+import Input from "~/components/common/input/Input.vue";
+import { useModal } from "~/composables/useModal";
+import { useWeb3 } from "@instadapp/vue-web3";
+import { injected, ledger } from "~/connectors";
+import { SUPPORTED_WALLETS } from "~/constant/wallet";
+import ButtonCTA from "../../common/input/ButtonCTA.vue";
+import ButtonCTAOutlined from "../../common/input/ButtonCTAOutlined.vue";
+import { Network, useNetwork } from "~/composables/useNetwork";
+import { useNotification } from "~/composables/useNotification";
 
 export default defineComponent({
   props: {
@@ -88,45 +88,53 @@ export default defineComponent({
   },
   components: { ButtonCTA, ButtonCTAOutlined, Input },
   setup() {
-    const { close } = useModal()
-    const { activate } = useWeb3()
-    const { activeNetworkId } = useNetwork()
-    const { showError, showAwaiting, closeAll } = useNotification()
-    const connecting = ref(false)
+    const { close } = useModal();
+    const { activate } = useWeb3();
+    const { activeNetworkId } = useNetwork();
+    const { showError, showAwaiting, closeAll } = useNotification();
+    const connecting = ref(false);
 
-    const connect = async (connector) => {
-      connecting.value = true
+    const connect = async connector => {
+      connecting.value = true;
 
-      showAwaiting("Connecting...")
+      showAwaiting("Connecting...");
 
       try {
-        await activate(connector, undefined, true)
-        connecting.value = false
-        close()
-        closeAll()
+        await activate(connector, undefined, true);
+        connecting.value = false;
+        close();
+        closeAll();
       } catch (error) {
-        closeAll()
-        showError("", error.message)
+        closeAll();
+        showError("", error.message);
       }
 
-      connecting.value = false
+      connecting.value = false;
+    };
+    const isMetamask = computed(() =>
+      process.server ? false : window.ethereum && window.ethereum.isMetaMask
+    );
 
-    }
-    const isMetamask = computed(() => process.server ? false : window.ethereum && window.ethereum.isMetaMask)
+    const wallets = computed(() =>
+      Object.keys(SUPPORTED_WALLETS)
+        .map(key => {
+          const wallet = SUPPORTED_WALLETS[key];
 
-    const wallets = computed(() => Object.keys(SUPPORTED_WALLETS).map((key) => {
-      const wallet = SUPPORTED_WALLETS[key]
+          if (wallet.connector === injected && !isMetamask.value) {
+            return null;
+          }
 
-      if (wallet.connector === injected && !isMetamask.value) {
-        return null
-      }
+          if (
+            wallet.connector === ledger &&
+            activeNetworkId.value !== Network.Mainnet
+          ) {
+            return null;
+          }
 
-      if (wallet.connector === ledger && activeNetworkId.value !== Network.Mainnet) {
-        return null
-      }
-
-      return wallet
-    }).filter(Boolean))
+          return wallet;
+        })
+        .filter(Boolean)
+    );
 
     return {
       close,
@@ -134,8 +142,8 @@ export default defineComponent({
       wallets,
       isMetamask,
       injected,
-      connecting,
-    }
-  },
-})
+      connecting
+    };
+  }
+});
 </script>

@@ -3,9 +3,9 @@ import Cookies from "universal-cookie";
 
 export function useCookies() {
   const { ssrContext } = useContext();
-  
+
   const cookies = new Cookies(
-    ssrContext ? ssrContext.req.headers.cookie : null
+    ssrContext ? ssrContext.req?.headers.cookie : null
   );
 
   function get(key: string) {

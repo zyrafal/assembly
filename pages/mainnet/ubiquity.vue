@@ -58,10 +58,75 @@
         <div class="shadow rounded-lg py-8 px-6 flex">
           <div class="flex-1">
             <h3 class="text-2xl text-primary-black font-medium">
-              {{ formatUsd(twapPrice) }}
+              {{ formatNumber18usd(datas.twapPrice) }}
             </h3>
             <p class="mt-4 text-primary-gray font-medium">
               uAD Price
+            </p>
+          </div>
+          <div class="flex items-center">
+            <SVGPrice class="h-12 text-primary-gray" />
+          </div>
+        </div>
+        <div class="shadow rounded-lg py-8 px-6 flex">
+          <div class="flex-1">
+            <h3 class="text-2xl text-primary-black font-medium">
+              {{ formatNumber18usd(datas.uadTotalSupply) }}
+            </h3>
+            <p class="mt-4 text-primary-gray font-medium">
+              uAD Total Supply
+            </p>
+          </div>
+          <div class="flex items-center">
+            <SVGPrice class="h-12 text-primary-gray" />
+          </div>
+        </div>
+        <div class="shadow rounded-lg py-8 px-6 flex">
+          <div class="flex-1">
+            <h3 class="text-2xl text-primary-black font-medium">
+              {{ formatNumber18usd(datas.ubqTotalSupply) }}
+            </h3>
+            <p class="mt-4 text-primary-gray font-medium">
+              UBQ Total Supply
+            </p>
+          </div>
+          <div class="flex items-center">
+            <SVGPrice class="h-12 text-primary-gray" />
+          </div>
+        </div>
+        <div class="shadow rounded-lg py-8 px-6 flex">
+          <div class="flex-1">
+            <h3 class="text-2xl text-primary-black font-medium">
+              {{ formatNumber18usd(datas.uarTotalSupply) }}
+            </h3>
+            <p class="mt-4 text-primary-gray font-medium">
+              uAR Total Supply
+            </p>
+          </div>
+          <div class="flex items-center">
+            <SVGPrice class="h-12 text-primary-gray" />
+          </div>
+        </div>
+        <div class="shadow rounded-lg py-8 px-6 flex">
+          <div class="flex-1">
+            <h3 class="text-2xl text-primary-black font-medium">
+              {{ formatNumber18usd(datas.lpTotalSupply) }}
+            </h3>
+            <p class="mt-4 text-primary-gray font-medium">
+              LP Total Supply
+            </p>
+          </div>
+          <div class="flex items-center">
+            <SVGPrice class="h-12 text-primary-gray" />
+          </div>
+        </div>
+        <div class="shadow rounded-lg py-8 px-6 flex">
+          <div class="flex-1">
+            <h3 class="text-2xl text-primary-black font-medium">
+              {{ formatNumber(datas.bondingSharesTotalSupply) }}
+            </h3>
+            <p class="mt-4 text-primary-gray font-medium">
+              BondingShare total supply
             </p>
           </div>
           <div class="flex items-center">
@@ -85,7 +150,7 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.uadBalance) }}
+                {{ formatNumber18(inventory.uadBalance) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">
                 uAD
@@ -99,7 +164,7 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.uarBalance) }}
+                {{ formatNumber18(inventory.uarBalance) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">uAR</p>
             </div>
@@ -111,7 +176,7 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.udebtBalance) }}
+                {{ formatNumber18(inventory.udebtBalance) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">
                 uDEBT
@@ -129,7 +194,7 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.ubqBalance) }}
+                {{ formatNumber18(inventory.ubqBalance) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">
                 UBQ
@@ -143,7 +208,7 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.crv3Balance) }}
+                {{ formatNumber18(inventory.crv3Balance) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">3CRV</p>
             </div>
@@ -155,7 +220,7 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.uad3crvBalance) }}
+                {{ formatNumber18(inventory.uad3crvBalance) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">
                 uAD3CRV-f
@@ -173,7 +238,7 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.ubqRewards) }}
+                {{ formatNumber18(inventory.ubqRewards) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">
                 UBQ rewards
@@ -242,6 +307,7 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
+    const { isZero, ensureValue, times, div, max, gt, toBN } = useBigNumber();
 
     const {
       formatUsd,
@@ -252,25 +318,33 @@ export default defineComponent({
       shortenHash
     } = useFormatting();
 
-    const { twapPrice, inventory } = useUbiquityPosition();
-    console.log("UBIQUITY POSITION", twapPrice.value);
-    console.log("INVENTORY", inventory.value);
+    const { addresses, datas, inventory } = useUbiquityPosition();
 
     const position = true;
+
+    const formatNumber18 = value =>
+      formatNumber(
+        ensureValue(value)
+          .dividedBy(1e18)
+          .toFixed()
+      );
+    const formatNumber18usd = value => formatUsd(formatNumber18(value));
 
     function openSupply() {
       router.push({ hash: "usupply" });
     }
     return {
       position,
+      addresses,
+      datas,
       inventory,
-      formatUsd,
+      formatNumber,
+      formatNumber18,
+      formatNumber18usd,
       formatUsdMax,
       formatPercent,
       formatDecimal,
-      formatNumber,
       shortenHash,
-      twapPrice,
       openSupply
     };
   }
