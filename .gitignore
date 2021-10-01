@@ -88,4 +88,9 @@ sw.*
 
 # Vim swap files
 *.swp
+
+# local history files
 .lh
+
+# vscode settings
+.vscode

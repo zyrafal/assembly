@@ -9,6 +9,7 @@ import unipoolABI from "./abi/read/unipool.json";
 import liquityABI from "./abi/read/liquity.json";
 import reflexerABI from './abi/read/reflexer.json';
 import bprotocolABI from './abi/read/bprotocol.json';
+import ubiquityABI from "./abi/read/ubiquity.json";
 
 const abis = {
   makerProxyRegistry: makerProxyRegistryABI,
@@ -23,6 +24,7 @@ const abis = {
     liquity: liquityABI,
     reflexer: reflexerABI,
     bprotocol: bprotocolABI,
+    ubiquity: ubiquityABI
   }
 };
 

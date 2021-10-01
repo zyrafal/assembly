@@ -6,7 +6,8 @@
     "pages/mainnet/ubiquity.vue",
     "components/sidebar/context",
     "pages",
-    "core/strategies"
+    "core/strategies",
+    "package.json"
   ],
   
     "svgPreview.style": {

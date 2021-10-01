@@ -58,7 +58,7 @@
         <div class="shadow rounded-lg py-8 px-6 flex">
           <div class="flex-1">
             <h3 class="text-2xl text-primary-black font-medium">
-              {{ formatUsd(0.9912312) }}
+              {{ formatUsd(twapPrice) }}
             </h3>
             <p class="mt-4 text-primary-gray font-medium">
               Time Weighted Average Price
@@ -164,7 +164,8 @@ export default defineComponent({
       shortenHash
     } = useFormatting();
 
-    const {} = useUbiquityPosition();
+    const { twapPrice } = useUbiquityPosition();
+    console.log("UBIQUITY POSITION", twapPrice.value);
 
     function openSupply() {
       router.push({ hash: "usupply" });
@@ -176,7 +177,7 @@ export default defineComponent({
       formatDecimal,
       formatNumber,
       shortenHash,
-
+      twapPrice,
       openSupply
     };
   }

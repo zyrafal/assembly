@@ -13,7 +13,8 @@ const addresses = {
       liquity: "0xDAf2A39503463B0F41f899EDD82213b3c96b6Cf8",
       reflexer: "0x016ca8d0993d1a7073b01802a2e22fd0df7e633a",
       bprotocol: "0x3843019c19259117ed473947007bcafc5c0c7129",
-      yearnV2: "0x3f6DCA8a0b7d04737BC3B2aEAbeB1C09431581f0"
+      yearnV2: "0x3f6DCA8a0b7d04737BC3B2aEAbeB1C09431581f0",
+      ubiquity: "0x6c6c0362ef8a89ec41f40174b3866e2a0741e797"
     }
   },
 
