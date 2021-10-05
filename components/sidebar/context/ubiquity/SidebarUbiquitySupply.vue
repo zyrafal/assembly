@@ -6,7 +6,7 @@
 
     <div class="bg-[#C5CCE1] bg-opacity-[0.15] mt-10 p-8">
         <h3 class="text-primary-gray text-lg font-semibold mb-4">
-          DAI USDC or USDT amout to Deposit
+          Deposit DAI
         </h3>
 
         <InputNumeric />

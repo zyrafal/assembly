@@ -164,9 +164,11 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber18(inventory.uarBalance) }}
+                {{ formatNumber18(inventory.uad3crvBalance) }}
               </h3>
-              <p class="mt-4 text-primary-gray font-medium">uAR</p>
+              <p class="mt-4 text-primary-gray font-medium">
+                uAD3CRV-f
+              </p>
             </div>
             <div class="flex items-center">
               <SVGBalance class="h-12" />
@@ -176,11 +178,9 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber18(inventory.udebtBalance) }}
+                {{ formatNumber(inventory.bondBalance) }}
               </h3>
-              <p class="mt-4 text-primary-gray font-medium">
-                uDEBT
-              </p>
+              <p class="mt-4 text-primary-gray font-medium">Bonding Shares</p>
             </div>
             <div class="flex items-center">
               <SVGBalance class="h-12" />
@@ -220,11 +220,9 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber18(inventory.uad3crvBalance) }}
+                {{ formatNumber18(inventory.uarBalance) }}
               </h3>
-              <p class="mt-4 text-primary-gray font-medium">
-                uAD3CRV-f
-              </p>
+              <p class="mt-4 text-primary-gray font-medium">uAR</p>
             </div>
             <div class="flex items-center">
               <SVGBalance class="h-12" />
@@ -238,23 +236,24 @@
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber18(inventory.ubqRewards) }}
+                {{ formatNumber18(inventory.udebtBalance) }}
               </h3>
               <p class="mt-4 text-primary-gray font-medium">
-                UBQ rewards
+                uDEBT
               </p>
             </div>
             <div class="flex items-center">
               <SVGBalance class="h-12" />
             </div>
           </div>
-
           <div class="shadow rounded-lg py-8 px-6 flex">
             <div class="flex-1">
               <h3 class="text-2xl text-primary-black font-medium">
-                {{ formatNumber(inventory.bondBalance) }}
+                {{ formatNumber18(inventory.ubqRewards) }}
               </h3>
-              <p class="mt-4 text-primary-gray font-medium">Bonding Shares</p>
+              <p class="mt-4 text-primary-gray font-medium">
+                UBQ rewards
+              </p>
             </div>
             <div class="flex items-center">
               <SVGBalance class="h-12" />
