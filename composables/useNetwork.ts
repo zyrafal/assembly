@@ -14,7 +14,8 @@ export enum Network {
   Mainnet = "mainnet",
   Polygon = "polygon",
   Arbitrum = "arbitrum",
-  Avalanche = "avalanche"
+  Avalanche = "avalanche",
+  Hardhat = "hardhat"
 }
 
 export const networks = [
@@ -22,6 +23,7 @@ export const networks = [
   { id: "polygon", chainId: 137, name: "Polygon", icon: PolygonSVG },
   { id: "arbitrum", chainId: 42161, name: "Arbitrum", icon: ArbitrumSVG },
   { id: "avalanche", chainId: 43114, name: "Avalanche", icon: AvalancheSVG },
+  { id: "hardhat", chainId: 31337, name: "Hardhat", icon: MainnetSVG },
 ];
 
 export const activeNetworkId = ref<Network>();
@@ -176,6 +178,45 @@ export function useNetwork() {
     }
   }
 
+
+  async function switchToHardhat() {
+    if (window.ethereum) {
+      const chainId = '0x7a69'
+
+      try {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId }],
+        })
+      } catch (switchError) {
+        // 4902 error code indicates that the chain has not been added to MetaMask.
+        if (switchError.code === 4902) {
+          try {
+            const chainData = {
+              chainId,
+              chainName: 'Hardhat Network',
+              nativeCurrency: {
+                name: 'Eth form',
+                symbol: 'ETH',
+                decimals: 18,
+              },
+              rpcUrls: ['http://localhost:8545'],
+              blockExplorerUrls: ['http://localhost:8545'],
+            }
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [chainData, account.value],
+            })
+          } catch (addError) {
+            return Promise.reject(addError)
+          }
+        } else {
+          return Promise.reject(switchError)
+        }
+      }
+    }
+  }
+
   async function switchNetwork() {
     try {
       if (activeNetworkId.value === "mainnet") {
@@ -184,6 +225,8 @@ export function useNetwork() {
         await switchToArbitrum();
       } else if (activeNetworkId.value === "avalanche") {
         await switchToAvalanche();
+      } else if (activeNetworkId.value === "hardhat") {
+        await switchToHardhat();
       } else {
         await switchToPolygon();
       }

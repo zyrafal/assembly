@@ -5,6 +5,7 @@ import {
   getArbitrumLink,
   getEtherscanLink,
   getMaticLink,
+  getHardhatLink,
   getTenderlyLink
 } from "./useLink";
 import { useRandom } from "./useRandom";
@@ -98,10 +99,12 @@ export function useNotification() {
     let href;
     if (network === Network.Polygon) {
       href = getMaticLink(transactionHash);
-    }else if (network === Network.Arbitrum) {
+    } else if (network === Network.Arbitrum) {
       href = getArbitrumLink(transactionHash);
-    }else if (network === Network.Avalanche) {
+    } else if (network === Network.Avalanche) {
       href = getAvalancheLink(transactionHash);
+    } else if (network === Network.Hardhat) {
+      href = getHardhatLink(transactionHash);
     } else {
       href = getEtherscanLink(transactionHash);
     }

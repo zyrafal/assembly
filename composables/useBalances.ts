@@ -24,13 +24,15 @@ const balances = reactive({
     mainnet: {},
     polygon: {},
     arbitrum: {},
-    avalanche: {}
+    avalanche: {},
+    hardhat: {}
   },
   dsa: {
     mainnet: {},
     polygon: {},
     arbitrum: {},
-    avalanche: {}
+    avalanche: {},
+    hardhat: {}
   }
 });
 
@@ -38,7 +40,8 @@ const prices = reactive({
   mainnet: {},
   polygon: {},
   arbitrum: {},
-  avalanche: {}
+  avalanche: {},
+  hardhat: {}
 });
 
 export function useBalances() {
@@ -61,6 +64,7 @@ export function useBalances() {
     prices.avalanche = await $axios.$get(
       "https://api.instadapp.io/defi/avalanche/prices"
     );
+    prices.hardhat = {};
   });
   const fetchBalances = async (refresh = false) => {
     if (!balances.user || refresh) {
@@ -81,6 +85,10 @@ export function useBalances() {
         avalanche:
           activeNetworkId.value === Network.Avalanche
             ? await getBalances(account.value, Network.Avalanche, library.value)
+            : {},
+        hardhat:
+          activeNetworkId.value === Network.Hardhat
+            ? await getBalances(account.value, Network.Hardhat, library.value)
             : {}
       };
     }
@@ -92,30 +100,34 @@ export function useBalances() {
         mainnet:
           activeNetworkId.value === Network.Mainnet
             ? await getBalances(
-                activeAccount.value.address,
-                Network.Mainnet,
-                library.value
-              )
+              activeAccount.value.address,
+              Network.Mainnet,
+              library.value
+            )
             : {},
         polygon:
           activeNetworkId.value === Network.Polygon
             ? await getBalances(
-                activeAccount.value.address,
-                Network.Polygon,
-                library.value
-              )
+              activeAccount.value.address,
+              Network.Polygon,
+              library.value
+            )
             : {},
         arbitrum:
           activeNetworkId.value === Network.Arbitrum
             ? await getBalances(
-                activeAccount.value.address,
-                Network.Arbitrum,
-                library.value
-              )
+              activeAccount.value.address,
+              Network.Arbitrum,
+              library.value
+            )
             : {},
         avalanche:
           activeNetworkId.value === Network.Avalanche
             ? await getBalances(account.value, Network.Avalanche, library.value)
+            : {},
+        hardhat:
+          activeNetworkId.value === Network.Hardhat
+            ? await getBalances(account.value, Network.Hardhat, library.value)
             : {}
       };
     }
@@ -320,5 +332,5 @@ async function getTokensDetails(addressArr, network: Network, web3: Web3) {
       result[i] = details;
     }
     return result;
-  } catch (error) {}
+  } catch (error) { }
 }

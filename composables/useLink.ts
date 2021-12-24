@@ -33,5 +33,7 @@ export const getArbitrumLink = transactionHash =>
   `https://arbiscan.io/tx/${transactionHash}`;
 export const getAvalancheLink = transactionHash =>
   `https://cchain.explorer.avax.network/tx/${transactionHash}`;
+export const getHardhatLink = transactionHash =>
+  `http://127.0.0.1:8545/tx/${transactionHash}`;
 export const getTenderlyLink = simulationId =>
   `https://dashboard.tenderly.co/public/InstaDApp/dsa-simulations/fork-simulation/${simulationId}?hideSidebar=true`;
