@@ -10,49 +10,52 @@ import {
 import { useDSA } from "./useDSA";
 import { useWeb3 } from "@instadapp/vue-web3";
 import SidebarAaveV2Supply from "~/components/sidebar/context/aaveV2/SidebarAaveV2Supply.vue";
-import SidebarAaveV2Withdraw from '~/components/sidebar/context/aaveV2/SidebarAaveV2Withdraw.vue'
-import SidebarAaveV2Borrow from '~/components/sidebar/context/aaveV2/SidebarAaveV2Borrow.vue'
-import SidebarAaveV2Payback from '~/components/sidebar/context/aaveV2/SidebarAaveV2Payback.vue'
+import SidebarAaveV2Withdraw from "~/components/sidebar/context/aaveV2/SidebarAaveV2Withdraw.vue";
+import SidebarAaveV2Borrow from "~/components/sidebar/context/aaveV2/SidebarAaveV2Borrow.vue";
+import SidebarAaveV2Payback from "~/components/sidebar/context/aaveV2/SidebarAaveV2Payback.vue";
 
-import SidebarOverview from '~/components/sidebar/context/overview/SidebarOverview.vue'
-import SidebarDepositOverview from '~/components/sidebar/context/SidebarDepositOverview.vue'
-import SidebarWithdraw from '~/components/sidebar/context/SidebarWithdraw.vue'
+import SidebarOverview from "~/components/sidebar/context/overview/SidebarOverview.vue";
+import SidebarDepositOverview from "~/components/sidebar/context/SidebarDepositOverview.vue";
+import SidebarWithdraw from "~/components/sidebar/context/SidebarWithdraw.vue";
 
-import SidebarCompoundWithdraw from '~/components/sidebar/context/compound/SidebarCompoundWithdraw.vue'
-import SidebarCompoundSupply from '~/components/sidebar/context/compound/SidebarCompoundSupply.vue'
-import SidebarCompoundBorrow from '~/components/sidebar/context/compound/SidebarCompoundBorrow.vue'
-import SidebarCompoundPayback from '~/components/sidebar/context/compound/SidebarCompoundPayback.vue'
+import SidebarCompoundWithdraw from "~/components/sidebar/context/compound/SidebarCompoundWithdraw.vue";
+import SidebarCompoundSupply from "~/components/sidebar/context/compound/SidebarCompoundSupply.vue";
+import SidebarCompoundBorrow from "~/components/sidebar/context/compound/SidebarCompoundBorrow.vue";
+import SidebarCompoundPayback from "~/components/sidebar/context/compound/SidebarCompoundPayback.vue";
 
-import SidebarMakerdaoCollateral from '~/components/sidebar/context/makerdao/SidebarMakerdaoCollateral.vue'
-import SidebarMakerdaoSupply from '~/components/sidebar/context/makerdao/SidebarMakerdaoSupply.vue'
-import SidebarMakerdaoWithdraw from '~/components/sidebar/context/makerdao/SidebarMakerdaoWithdraw.vue'
-import SidebarMakerdaoBorrow from '~/components/sidebar/context/makerdao/SidebarMakerdaoBorrow.vue'
-import SidebarMakerdaoPayback from '~/components/sidebar/context/makerdao/SidebarMakerdaoPayback.vue'
+import SidebarMakerdaoCollateral from "~/components/sidebar/context/makerdao/SidebarMakerdaoCollateral.vue";
+import SidebarMakerdaoSupply from "~/components/sidebar/context/makerdao/SidebarMakerdaoSupply.vue";
+import SidebarMakerdaoWithdraw from "~/components/sidebar/context/makerdao/SidebarMakerdaoWithdraw.vue";
+import SidebarMakerdaoBorrow from "~/components/sidebar/context/makerdao/SidebarMakerdaoBorrow.vue";
+import SidebarMakerdaoPayback from "~/components/sidebar/context/makerdao/SidebarMakerdaoPayback.vue";
 
-import SidebarLiquityTroveOpenNew from '~/components/sidebar/context/liquity/SidebarLiquityTroveOpenNew.vue'
-import SidebarLiquityTroveSupply from '~/components/sidebar/context/liquity/SidebarLiquityTroveSupply.vue'
-import SidebarLiquityTroveWithdraw from '~/components/sidebar/context/liquity/SidebarLiquityTroveWithdraw.vue'
-import SidebarLiquityTroveBorrow from '~/components/sidebar/context/liquity/SidebarLiquityTroveBorrow.vue'
-import SidebarLiquityTrovePayback from '~/components/sidebar/context/liquity/SidebarLiquityTrovePayback.vue'
-import SidebarLiquityPoolSupply from '~/components/sidebar/context/liquity/SidebarLiquityPoolSupply.vue'
-import SidebarLiquityPoolWithdraw from '~/components/sidebar/context/liquity/SidebarLiquityPoolWithdraw.vue'
+import SidebarLiquityTroveOpenNew from "~/components/sidebar/context/liquity/SidebarLiquityTroveOpenNew.vue";
+import SidebarLiquityTroveSupply from "~/components/sidebar/context/liquity/SidebarLiquityTroveSupply.vue";
+import SidebarLiquityTroveWithdraw from "~/components/sidebar/context/liquity/SidebarLiquityTroveWithdraw.vue";
+import SidebarLiquityTroveBorrow from "~/components/sidebar/context/liquity/SidebarLiquityTroveBorrow.vue";
+import SidebarLiquityTrovePayback from "~/components/sidebar/context/liquity/SidebarLiquityTrovePayback.vue";
+import SidebarLiquityPoolSupply from "~/components/sidebar/context/liquity/SidebarLiquityPoolSupply.vue";
+import SidebarLiquityPoolWithdraw from "~/components/sidebar/context/liquity/SidebarLiquityPoolWithdraw.vue";
 
-import SidebarBprotocolDeposit from '~/components/sidebar/context/bprotocol/SidebarBprotocolDeposit.vue'
-import SidebarBprotocolWithdraw from '~/components/sidebar/context/bprotocol/SidebarBprotocolWithdraw.vue'
+import SidebarBprotocolDeposit from "~/components/sidebar/context/bprotocol/SidebarBprotocolDeposit.vue";
+import SidebarBprotocolWithdraw from "~/components/sidebar/context/bprotocol/SidebarBprotocolWithdraw.vue";
 
-import SidebarReflexerCollateral from '~/components/sidebar/context/reflexer/SidebarReflexerCollateral.vue'
-import SidebarReflexerSupply from '~/components/sidebar/context/reflexer/SidebarReflexerSupply.vue'
-import SidebarReflexerWithdraw from '~/components/sidebar/context/reflexer/SidebarReflexerWithdraw.vue'
-import SidebarReflexerBorrow from '~/components/sidebar/context/reflexer/SidebarReflexerBorrow.vue'
-import SidebarReflexerPayback from '~/components/sidebar/context/reflexer/SidebarReflexerPayback.vue'
+import SidebarReflexerCollateral from "~/components/sidebar/context/reflexer/SidebarReflexerCollateral.vue";
+import SidebarReflexerSupply from "~/components/sidebar/context/reflexer/SidebarReflexerSupply.vue";
+import SidebarReflexerWithdraw from "~/components/sidebar/context/reflexer/SidebarReflexerWithdraw.vue";
+import SidebarReflexerBorrow from "~/components/sidebar/context/reflexer/SidebarReflexerBorrow.vue";
+import SidebarReflexerPayback from "~/components/sidebar/context/reflexer/SidebarReflexerPayback.vue";
 
 import SidebarYearnV2Supply from "~/components/sidebar/context/yearn-v2/SidebarYearnV2Supply.vue";
-import SidebarYearnV2Withdraw from '~/components/sidebar/context/yearn-v2/SidebarYearnV2Withdraw.vue'
+import SidebarYearnV2Withdraw from "~/components/sidebar/context/yearn-v2/SidebarYearnV2Withdraw.vue";
+
+import SidebarUniverseSupply from "~/components/sidebar/context/universe/SidebarUniverseSupply.vue";
+import SidebarUniverseWithdraw from "~/components/sidebar/context/universe/SidebarUniverseWithdraw.vue";
 
 import SidebarUbiquitySupply from "~/components/sidebar/context/ubiquity/SidebarUbiquitySupply.vue";
 
-import SidebarStrategySelection from '~/components/sidebar/context/strategy/SidebarStrategySelection.vue'
-import SidebarStrategy from '~/components/sidebar/context/strategy/SidebarStrategy.vue'
+import SidebarStrategySelection from "~/components/sidebar/context/strategy/SidebarStrategySelection.vue";
+import SidebarStrategy from "~/components/sidebar/context/strategy/SidebarStrategy.vue";
 
 const sidebars = {
   "#overview": { component: SidebarOverview, back: false, close: true },
@@ -76,6 +79,10 @@ const sidebars = {
   "/mainnet/compound#borrow": { component: SidebarCompoundBorrow },
   "/mainnet/compound#payback": { component: SidebarCompoundPayback },
 
+  "/mainnet/universe": { component: null },
+  "/mainnet/universe#supply": { component: SidebarUniverseSupply },
+  "/mainnet/universe#withdraw": { component: SidebarUniverseWithdraw },
+
   "/mainnet/maker": { component: null },
   "/mainnet/maker#collateral": { component: SidebarMakerdaoCollateral },
   "/mainnet/maker#supply": { component: SidebarMakerdaoSupply },
@@ -83,13 +90,13 @@ const sidebars = {
   "/mainnet/maker#borrow": { component: SidebarMakerdaoBorrow },
   "/mainnet/maker#payback": { component: SidebarMakerdaoPayback },
 
-  '/mainnet/liquity#trove-new': { component: SidebarLiquityTroveOpenNew },
-  '/mainnet/liquity#trove-supply': { component: SidebarLiquityTroveSupply },
-  '/mainnet/liquity#trove-withdraw': { component: SidebarLiquityTroveWithdraw },
-  '/mainnet/liquity#trove-borrow': { component: SidebarLiquityTroveBorrow },
-  '/mainnet/liquity#trove-payback': { component: SidebarLiquityTrovePayback },
-  '/mainnet/liquity#pool-supply': { component: SidebarLiquityPoolSupply },
-  '/mainnet/liquity#pool-withdraw': { component: SidebarLiquityPoolWithdraw },
+  "/mainnet/liquity#trove-new": { component: SidebarLiquityTroveOpenNew },
+  "/mainnet/liquity#trove-supply": { component: SidebarLiquityTroveSupply },
+  "/mainnet/liquity#trove-withdraw": { component: SidebarLiquityTroveWithdraw },
+  "/mainnet/liquity#trove-borrow": { component: SidebarLiquityTroveBorrow },
+  "/mainnet/liquity#trove-payback": { component: SidebarLiquityTrovePayback },
+  "/mainnet/liquity#pool-supply": { component: SidebarLiquityPoolSupply },
+  "/mainnet/liquity#pool-withdraw": { component: SidebarLiquityPoolWithdraw },
 
   "/mainnet/bprotocol#deposit": { component: SidebarBprotocolDeposit },
   "/mainnet/bprotocol#withdraw": { component: SidebarBprotocolWithdraw },
@@ -106,7 +113,7 @@ const sidebars = {
   "/mainnet/yearn-v2#withdraw": { component: SidebarYearnV2Withdraw },
 
   "/mainnet/ubiquity": { component: null },
-  "/mainnet/ubiquity#usupply": { component: SidebarUbiquitySupply },
+  "/mainnet/ubiquity#usupply": { component: SidebarUbiquitySupply }
 };
 
 const sidebar = ref(null);

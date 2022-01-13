@@ -21,9 +21,10 @@
         </div>
 
         <h2 class="mt-4 font-semibold text-19">{{ app.name }}</h2>
-        <p class="mt-2 text-14 font-regular text-grey-dark opacity-90"
-        v-html="app.description">
-        </p>
+        <p
+          class="mt-2 text-14 font-regular text-grey-dark opacity-90"
+          v-html="app.description"
+        ></p>
       </nuxt-link>
     </div>
   </div>
@@ -40,6 +41,7 @@ import LiquityIcon from "~/assets/icons/liquity.svg?inline";
 import BprotocolIcon from "~/assets/icons/b-protocol.svg?inline";
 import ReflexerIcon from "~/assets/icons/reflexer.svg?inline";
 import YearnIcon from "~/assets/icons/yearn.svg?inline";
+import UniverseIcon from "~/assets/icons/universe.svg?inline";
 import UbiquityIcon from "~/assets/icons/ubiquity.svg?inline";
 
 const appsPerNetwork = {
@@ -100,14 +102,20 @@ const appsPerNetwork = {
       url: "/mainnet/yearn-v2",
       description: "Automated Yield Strategies"
     },
-	{
-	  id: "ubiquity",
+    {
+      id: "ubiquity",
       icon: UbiquityIcon,
       name: "Ubiquity",
       url: "/mainnet/ubiquity",
       description: "Algorithmic Dollar"
+    },
+    {
+      id: "universe",
+      icon: UniverseIcon,
+      name: "Universe",
+      url: "/mainnet/universe",
+      description: "Maximizing your Uniswap V3 Return"
     }
-
   ],
   polygon: [
     {
